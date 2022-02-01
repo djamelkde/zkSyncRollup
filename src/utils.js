@@ -10,7 +10,7 @@ async function getZkSyncProvider (zksync, networkName) {
 }
 
 async function getEthereumProvider (ethers, networkName) {
-    let zkSyncProvider
+    let ethersProvider
     try {
         //eslint-disable-next-line new-cap
         ethersProvider = new ethers.getDefaultProvider(networkName)
@@ -18,6 +18,7 @@ async function getEthereumProvider (ethers, networkName) {
       console.log('Could not connect to Ethereum !')
       console.log(error)
     }
+    return ethersProvider
 }
 
 async function initAccount (rinkebyWallet, zkSyncProvider, zksync) {
@@ -100,4 +101,16 @@ async function displayZkSyncBalance (wallet, ethers) {
   } else {
     console.log(`Verified ETH balance for ${wallet.address()}: 0`)
   }
+}
+
+module.exports = {
+  getZkSyncProvider,
+  getEthereumProvider,
+  depositToZkSync,
+  registerAccount,
+  displayZkSyncBalance,
+  transfer,
+  withdrawToEthereum,
+  getFee,
+  initAccount
 }
