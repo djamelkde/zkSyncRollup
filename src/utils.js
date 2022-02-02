@@ -32,7 +32,10 @@ async function registerAccount (wallet) {
     if (await wallet.getAccountId() === undefined) {
       throw new Error('Unknown account')
     }
-    const changePubkey = await wallet.setSigningKey()
+    const changePubkey = await wallet.setSigningKey({
+      feeToken: "ETH",
+      ethAuthType: "ECDSA"
+    })
     await changePubkey.awaitReceipt()
   }
   console.log(`Account ${wallet.address()} registered`)
@@ -71,7 +74,7 @@ async function transfer (from, toAddress, amountToTransfer, transferFee, token, 
 
 async function getFee (transactionType, address, token, zkSyncProvider, ethers) {
   const feeInWei = await zkSyncProvider.getTransactionFee(transactionType, address, token)
-  return ethers.utils.formatEther(feeInWei.toString())
+  return ethers.utils.formatEther(feeInWei.totalFee.toString())
 }
 
 async function withdrawToEthereum (wallet, amountToWithdraw, withdrawalFee, token, zksync, ethers) {
