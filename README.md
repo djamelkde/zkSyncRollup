@@ -11,17 +11,17 @@ The demo is implemented based on zkSync javascript API (please refer to https://
 npm install ethers zksync
 ```
 
-## execution
+## Execution
 1. clone the project:
 	```
 	git clone https://github.com/djamelkde/zkSyncRollup.git & cd zkSyncRollup
 	```
 2. export some env variables:
 	```
-  export NETWORK_NAME=rinkeby
+	export NETWORK_NAME=rinkeby
 	export MY_RINKEBY_PRIVATE_KEY=<BOB_PRIVATE_KEY> # could be extracted from metamask
-  export ALICE_RINKEBY_PRIVATE_KEY=<ALICE_PRIVATE_KEY> #could be extracted from metamask
-  export BOB_ADDRESS=<BOB_PUBLIC_KEY> #could be extracted from metamask
+	export ALICE_RINKEBY_PRIVATE_KEY=<ALICE_PRIVATE_KEY> #could be extracted from metamask
+	export BOB_ADDRESS=<BOB_PUBLIC_KEY> #could be extracted from metamask
 	```
 2. open a new terminal and execute the first script (Bob)
 	```
