@@ -27,6 +27,7 @@
     console.log('Tansferring')
     const transferFee = await utils.getFee('Transfer', aliceRinkebyWallet.address, token, zkSyncProvider, ethers)
     console.log(`transferFee = ${transferFee}`)
+    //const transferFee = "0.0001";
     await utils.transfer(aliceZkSyncWallet, process.env.MY_RINKEBY_PUBLIC_KEY, amountToTransfer, transferFee, token, zksync, ethers)
 
 })()

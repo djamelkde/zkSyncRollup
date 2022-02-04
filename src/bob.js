@@ -15,8 +15,6 @@
     console.log(`Bob's initial balance on Rinkeby is: ${ethers.utils.formatEther(await rinkebyWallet.getBalance())}`)
 
     const bobZkSyncWallet = await utils.initAccount(rinkebyWallet, zkSyncProvider, zksync)
-    //Register the Alice account to be able to transfer tokens using its zkSync Wallet
-    await utils.registerAccount(bobZkSyncWallet)
 
     process.on('SIGINT', () => {
       console.log("Disconnecting")
