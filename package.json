@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "ethers": "^5.5.3",
-    "zksync": "^0.11.6"
+    "zksync": "^0.13.1"
   }
 }
